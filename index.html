@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+
+    }
+    .bg-img{
+      width: 100%;
+    }
+
+    .img-window{
+      position: relative;
+      width: 100%;
+
+    }
+    .text{
+      position: relative;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.473);
+    }
+
+    .text1,
+    .text2,
+    .text3{
+      
+    }
+
+    h1{
+      font-size: 200px;
+      color: white;
+      animation: header-2 1s ease-in-out;
+    }
+    h2{
+      font-size: 50px;
+      color: white;
+      animation: header-2 1.3s ease-in-out;
+    }
+    button{
+      padding: 10px 50px;
+      margin-top: 20px;
+      font-size: 18px;
+      border-radius: 5px;
+      border: none;
+      background-color: skyblue;
+      animation: herro-readmore 2s ease-in-out;
+      max-width: 200px;
+    }
+
+    @keyframes header-2 {
+  0% {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  20% {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  100% {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+@keyframes herro-readmore {
+  0% {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  40% {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  100% {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="img-window" id="herro-section">
+    <div class="text">
+        <div class="text1">
+            <h1>TRANSFORM</h1>
+            <h2>YOUR BUSINESS INTO A <br>
+                SUCCESSFUL BUSINESS</h2>
+            <button>Read More»</button>
+        </div>
+        <div class="text2">
+            <h1> VIVAMUS</h1>
+            <h2>SED SEM TRISTIQUE <br>
+                NON ELEIFEND</h2>
+            <button>Read More»</button>
+        </div>
+        <div class="text3">
+            <h1> MAURIS</h1>
+            <h2>SED SEM TRISTIQUE <br>
+                NON ELEIFEND</h2>
+            <button>Read More»</button>
+        </div>
+  
+    </div>
+    <div class="bg">
+  
+    </div>
+    <img src="images/bg1.jpg" alt="bg" class="bg-img">
+  
+    <div class="img_tracker">
+        <span class="tracker-1 trackers"></span>
+        <span class="tracker-2 trackers"></span>
+        <span class="tracker-3 trackers"></span>
+    </div>
+  </div>
+</body>
+<script>
+  
+  startup();
+  
+function startup() {
+    let bgImageElement = document.querySelector('.bg-img');
+    let getTracker1 = document.querySelector('.tracker-1');
+    let getTracker2 = document.querySelector('.tracker-2');
+    let getTracker3 = document.querySelector('.tracker-3');
+
+    let getText1 = document.querySelector('.text1');
+    let getText2 = document.querySelector('.text2');
+    let getText3 = document.querySelector('.text3');
+    getText2.style.display = 'none';
+    getText3.style.display = 'none';
+
+    let currentImage = 1;
+
+    setInterval(imgTransform, 3000);
+
+    function imgTransform() {
+      if (currentImage === 1) {
+        bgImageElement.setAttribute('src', 'images/bg1.jpg');
+
+        getText1.style.display = 'block';
+        getText2.style.display = 'none';
+        getText3.style.display = 'none';
+      }else if (currentImage === 2) {
+        bgImageElement.setAttribute('src', 'images/bg2.jpg');
+
+        getText1.style.display = 'none';
+        getText2.style.display = 'block';
+        getText3.style.display = 'none';
+      }else if (currentImage === 3) {
+        bgImageElement.setAttribute('src', 'images/bg3.jpg');
+
+        getText1.style.display = 'none';
+        getText2.style.display = 'none';
+        getText3.style.display = 'block';
+      }
+
+      currentImage++;
+
+      if (currentImage > 3) {
+        currentImage = 1;
+      }else if (currentImage < 1 ) {
+        currentImage = 3;
+      }
+    }
+
+  }
+
+
+
+</script>
+</html>
+
